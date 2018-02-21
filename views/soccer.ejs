@@ -22,21 +22,27 @@
         <thead>
           <tr>
             <th>Team</th>
+            <th>Edit</th>
             <th>x</th>
           </tr>
         </thead>
         <tbody>
           <% teams.forEach( function(team) { %>
             <% var url = "/soccer/" + team.id + "?_method=DELETE" %>
+            <% var editUrl = "soccer/" + team.id + "/edit" %>
             <tr>
               <td>
                 <%= team.title %>
               </td>
-
+                <td>
+                  <a class="btn" href=<%= editUrl %>>Edit</a>
+                </td>
                 <td>
                   <form method="POST" action=<%= url %>>
                     <button class="btn red">Delete</button>
                   </form>
+                </td>
+                <td>
                 </td>
             </tr>
           <% }); %>

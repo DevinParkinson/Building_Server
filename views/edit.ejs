@@ -7,10 +7,10 @@
       <% include ./partials/header %>
     </header>
     <div class="container">
-      <% var url = "/movies/" + movie.id + "?_method=PUT" %>
+      <% var url = "/soccer/" + teams.id + "?_method=PUT" %>
       <form method="POST" action=<%= url %> >
-        <input required name="title" value=<%= movie.title %> />
-        <a href="/movies" class="btn red">Cancel</a>
+        <input required name="title" value=<%= teams.title %> />
+        <a href="/soccer" class="btn red">Cancel</a>
         <button class="btn">Save</button>
      </form>
    </div>
