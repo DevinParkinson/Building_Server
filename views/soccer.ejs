@@ -1,0 +1,48 @@
+<html>
+
+  <head>
+    <% include ./partials/head %>
+  </head>
+
+  <body>
+    <header>
+      <% include ./partials/header %>
+    </header>
+    <h1 class='center'>My Favorite Teams</h1>
+    <hr />
+    <div class='row'>
+      <div class='col s12 m4'>
+        <h3>Add Team</h3>
+        <form action='/soccer' method='post'>
+          <input type='text' name='title' placeholder='Title' />
+          <button class='btn btn-waves' type='submit'>Add</button>
+        </form>
+      </div>
+      <table class='table col m8 s12'>
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>x</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% teams.forEach( function(team) { %>
+            <% var url = "/soccer/" + team.id + "?_method=DELETE" %>
+            <tr>
+              <td>
+                <%= team.title %>
+              </td>
+
+                <td>
+                  <form method="POST" action=<%= url %>>
+                    <button class="btn red">Delete</button>
+                  </form>
+                </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+</html>
